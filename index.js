@@ -20,6 +20,10 @@ app.get('/lunch', function(request, response, next) {
   random.randomSelect(request, response, next);
 });
 
+app.get('/eat', function(request, response, next) {
+  response.send(request.body.user_name + ',' + request.body.text);
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
