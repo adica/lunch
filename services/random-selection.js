@@ -15,7 +15,7 @@ function random() {
 	return restaurants[Math.floor(Math.random() * restaurants.length)].name;
 }
 exports.randomSelect = function (req, res, next) {
-	res.send('Today we eat at ' + random() + '!!');
+	res.send('Today we eat at ' + random() + '!!?');
 	next();
 }
 
