@@ -53,7 +53,7 @@ exports.randomSelect = function(req, res, next) {
         var allUsers = ['adic', 'evyatar', 'dudu', 'shavit'];
         var users = allUsers.remove(my_user);
         var msg = users.join(' and @')
-        console.log("Today you are going to eat at " + restArr[index].name + ", at 12:30 with @" + msg);
+        //console.log("Today you are going to eat at " + restArr[index].name + ", at 12:30 with @" + msg);
         sendToAll("Today you are going to eat at " + restArr[index].name + ", at 12:30 with @" + msg );
         next();
     });
