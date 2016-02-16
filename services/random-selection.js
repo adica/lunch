@@ -8,7 +8,7 @@ var restaurants = [
 	{"name" : "shemesh"},
 	{"name" : "pizza-hut"},
 	{"name" : "mcdonalds"},
-	{"name" : "japanyka"}
+	{"name" : "japanyka"} 
 ];
 
 function random() {
