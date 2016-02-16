@@ -17,7 +17,7 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.get('/lunch', function(request, response, next) {
+app.post('/lunch', function(request, response, next) {
   //response.send("Today we eat at El-Gaucho!!");
   random.randomSelect(request, response, next);
 });

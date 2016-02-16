@@ -1,3 +1,14 @@
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
+
 var exports = module.exports = {},
     hooksURL = 'https://hooks.slack.com/services/',
     request_lib = require('request'),
@@ -26,7 +37,7 @@ function sendToUser(username, message) {
 }
 
 exports.randomSelect = function(req, res, next) {
-
+    var my_user = req.body.user_name;
     var retUrl = hooksURL + process.env.INCOMING_TOKEN;
     //console.log(retUrl);   
 
@@ -39,8 +50,11 @@ exports.randomSelect = function(req, res, next) {
         });
 
         var index = Math.floor(Math.random() * restArr.length);
-        res.send('Today we eat at ' + restArr[index].name + '!!?');
-        sendToAll("today we eat at " + restArr[index].name + '!!?');
+        var allUsers = ['adi', 'evyatar', 'dudu', 'shavit'];
+        var users = allUsers.remove(my_user);
+        var msg = users.join(' and @')
+        res.send("Today you are going to eat at " + restArr[index].name + ", at 12:30 with @" + msg);
+        sendToAll("Today you are going to eat at " + restArr[index].name + ", at 12:30 with @" + msg );
         next();
     });
 
