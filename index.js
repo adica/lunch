@@ -23,8 +23,8 @@ app.get('/lunch', function(request, response, next) {
 });
 
 app.post('/eat', function(request, response, next) {
-  if (request.body.text) {
-       response.send(request.body.text);
+  if (request.body.text && request.body.user_name) {
+       response.send(request.body.user_name + ' - '  +request.body.text);
     } else {
         response.send("no text");
     }
