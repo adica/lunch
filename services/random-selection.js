@@ -50,10 +50,11 @@ exports.randomSelect = function(req, res, next) {
         });
 
         var index = Math.floor(Math.random() * restArr.length);
-        var allUsers = ['adic', 'evyatar', 'dudu', 'shavit'];
+        var allUsers = ['adi', 'evyatar', 'dudu', 'shavit'];
         var users = allUsers.remove(my_user);
         var msg = users.join(' and @')
-        //console.log("Today you are going to eat at " + restArr[index].name + ", at 12:30 with @" + msg);
+        res.send("done");
+        //sendToAll("today we eat at " + restArr[index].name + '!!?');
         sendToAll("Today you are going to eat at " + restArr[index].name + ", at 12:30 with @" + msg );
         next();
     });
