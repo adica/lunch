@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var random = require('./services/random-selection.js');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -13,8 +14,9 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.get('/lunch', function(request, response) {
-  response.send("Today we eat at El-Gaucho!!");
+app.get('/lunch', function(request, response, next) {
+  //response.send("Today we eat at El-Gaucho!!");
+  random.randomSelect(request, response, next);
 });
 
 app.listen(app.get('port'), function() {
